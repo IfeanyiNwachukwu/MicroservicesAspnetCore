@@ -13,4 +13,7 @@
  --db.Products.remove({}) = removes everything in our database
  -- show databases = shows all database(both default and custom)
  --show collections = lists all available tables
+ 
+ // Run a docker container e.g mongo
+ docker run -d -p 27017:27017 --name shopping-mongo mongo
   
