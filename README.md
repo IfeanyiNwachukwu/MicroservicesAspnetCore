@@ -16,4 +16,12 @@
  
  // Run a docker container e.g mongo
  docker run -d -p 27017:27017 --name shopping-mongo mongo
-  
+ 
+ //Run docker compose
+ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+ 
+ // Stop all docker compose
+ docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+ 
+ // Mongo Db GUI
+ docker run -d -p 3000:3000 mongoclient/mongoclient
