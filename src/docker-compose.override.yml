@@ -14,15 +14,10 @@ services:
 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://cataloguedb:27017"
+      - "DatabaseSettings:ConnectionString=mongodb://catalogueDb:27017"
     depends_on:
       - catalogueDb
 
 
     ports:
       - "8000:80"
-   
-
-
-  
-  
