@@ -1,10 +1,6 @@
 ﻿using Catalogue.API.Entitities;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Catalogue.API.Data
 {
@@ -18,8 +14,8 @@ namespace Catalogue.API.Data
             Products = database.GetCollection<Product>(configuration.GetValue<string>("DatabaseSettings:CollectionName"));
 
             CatalogueContextSeed.SeedData(Products);
-        
+
         }
-        public IMongoCollection<Product> Products {get;}
+        public IMongoCollection<Product> Products { get; }
     }
 }
