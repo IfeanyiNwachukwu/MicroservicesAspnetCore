@@ -25,3 +25,6 @@
  
  // Mongo Db GUI
  docker run -d -p 3000:3000 mongoclient/mongoclient
+ 
+ //Run redis Db
+ docker run -d -p 6379:6379 --name aspnetrun-redis redis
