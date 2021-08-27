@@ -20,7 +20,7 @@ services:
     environment:
      - POSTGRES_USER=admin
      - POSTGRES_PASSWORD=admin12345
-     - POSTGRES_DB = DiscountDb
+     - POSTGRES_DB=DiscountDb
     restart: always
     ports:
      - "5432:5432"
@@ -30,13 +30,13 @@ services:
   pgadmin:
     container_name: pgadmin
     environment:
-     - PGADMIN_DEFAULT_EMAIL=admin@micoservices.com
-     - PGADMIN_DEFAULT_PASSWORD=admin12345
+      - PGADMIN_DEFAULT_EMAIL=admin@gambomicoservices.com
+      - PGADMIN_DEFAULT_PASSWORD=admin12345
     restart: always
     ports:
-     - "5050:80"
+        - "5050:80"
     volumes:
-     - pgadmin_data:/root/.pgadmin
+      - pgadmin_data:/root/.pgadmin
 
   portainer:
     container_name: portainer
@@ -69,4 +69,14 @@ services:
       - basketDb
     ports:
       - "8001:80"
+
+
+  discount.api:
+    container_name: Discount.API
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin12345;"
+    ports:
+      - "80"
+      - "8002:80"
 
