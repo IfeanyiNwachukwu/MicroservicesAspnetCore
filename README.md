@@ -28,3 +28,5 @@
  
  //Run redis Db
  docker run -d -p 6379:6379 --name aspnetrun-redis redis
+ 
+ //pg Admin for managing postgres database
