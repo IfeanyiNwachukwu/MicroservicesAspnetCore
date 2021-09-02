@@ -15,8 +15,8 @@ services:
     ports:
     - "6379:6379"
 
-  discountDb:
-    container_name: discountDb
+  discountsDatabase:
+    container_name: discountsDatabase
     environment:
      - POSTGRES_USER=admin
      - POSTGRES_PASSWORD=admin12345
@@ -30,7 +30,7 @@ services:
   pgadmin:
     container_name: pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@gambomicoservices.com
+      - PGADMIN_DEFAULT_EMAIL=administrator@microservices.com
       - PGADMIN_DEFAULT_PASSWORD=admin12345
     restart: always
     ports:
@@ -71,12 +71,16 @@ services:
       - "8001:80"
 
 
-  discount.api:
+    
+
+
+  discounts.api:
     container_name: Discount.API
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=Server=discountdb;Port=5432;Database=DiscountDb;User Id=admin;Password=admin12345;"
+      - "ConnectionStrings:DefaultConnection=Server=discountsDatabase;Port=5432;Database=DiscountDb;User Id=admin;Password=admin12345;"
+    depends_on:
+      - discountsDatabase
     ports:
-      - "80"
       - "8002:80"
 
