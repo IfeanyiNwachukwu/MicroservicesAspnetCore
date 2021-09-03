@@ -23,6 +23,9 @@
  // Stop all docker compose
  docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
  
+ // Rebuild all docker images esp. when there are code changes
+  docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up --build
+ 
  // Mongo Db GUI
  docker run -d -p 3000:3000 mongoclient/mongoclient
  
@@ -30,3 +33,5 @@
  docker run -d -p 6379:6379 --name aspnetrun-redis redis
  
  //pg Admin for managing postgres database
+ 
+ 
