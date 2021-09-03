@@ -84,3 +84,12 @@ services:
     ports:
       - "8002:80"
 
+
+  discounts.grpc:
+    container_name: Discount.GRPC
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+       - "ConnectionStrings:DefaultConnection=Server=discountsDatabase;Port=5432;Database=DiscountDb;User Id=admin;Password=admin12345;"
+    ports:
+      - "8003:80"
+

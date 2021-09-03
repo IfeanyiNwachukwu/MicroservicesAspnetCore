@@ -14,6 +14,7 @@ namespace Discounts.GRPC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddScoped<IDiscountRepository, DiscountRepository>();
             services.AddAutoMapper(typeof(Startup));
             services.AddGrpc();
