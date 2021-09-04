@@ -18,9 +18,9 @@ services:
   discountsDatabase:
     container_name: discountsDatabase
     environment:
-     - POSTGRES_USER=admin
-     - POSTGRES_PASSWORD=admin12345
-     - POSTGRES_DB=DiscountDb
+     - POSTGRES_USER=minister
+     - POSTGRES_PASSWORD=admin12345678
+     - POSTGRES_DB=DiscountsDatabase_1
     restart: always
     ports:
      - "5432:5432"
@@ -65,14 +65,11 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "CacheSettings:ConnectionString=basketDb:6379"
+      - "GrpcSettings:DiscountUrl=http://discount.grpc"
     depends_on:
       - basketDb
     ports:
       - "8001:80"
-
-
-    
-
 
   discounts.api:
     container_name: Discount.API
@@ -86,7 +83,7 @@ services:
 
 
   discounts.grpc:
-    container_name: Discount.GRPC
+    container_name: discount.grpc
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
        - "ConnectionStrings:DefaultConnection=Server=discountsDatabase;Port=5432;Database=DiscountDb;User Id=admin;Password=admin12345;"
